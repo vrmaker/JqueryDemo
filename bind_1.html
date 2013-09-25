@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <title>bind demo</title>
+    <style>
+        p {
+            background: yellow;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 5px;
+        }
+        p.over {
+            background: #ccc;
+        }
+        span {
+            color: red;
+        }
+    </style>
+
+    <script src="lib/jquery-1.9.1.js"></script>
+</head>
+<body>
+<p>Click or double click here.</p>
+<span></span>
+</body>
+<script>
+
+    $("p").bind("mouseenter mouseleave",function(){
+        $(this).toggleClass("over");
+    });
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="lib/jquery-1.9.1.js"></script>
+
+    <style>
+        div { color:blue; }
+        span { color:red; }
+        b { font-weight:bolder; }
+    </style>
+</head>
+<script>
+//    $("div").attr("id",function(arr){
+//        return "div-id" + id;
+//    }).each(function(){
+//                $("span",this).html("(ID = '<b>" + this.id + "</b>')");
+//            })
+$(function(){
+    $("div").attr("id", function (arr) {
+        $("p").text($("div").attr("id"));
+        return "div-id" + arr;}).each(function () {  $("span", this).html("(ID = '<b>" + this.id + "</b>')");});
+
+        var sHtml = $("span").html();
+        console.log(sHtml);
+})
+
+
+</script>
+
+
+<body>
+<div>Zero-th <span><b>fj </b></span></div>
+<div>First <span></span></div>
+<div>Second <span></span></div>
+<p></p>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="lib/jquery-1.9.1.js"></script>
+<head>
+    <title></title>
+</head>
+<body>
+<div id="testDiv">测试图层</div>
+<script type="text/javascript">
+    //根据ID获取Dom对象
+    var div = document.getElementById("testDiv");
+
+    //根据标签类型获取Dom对象集合
+    var divs = document.getElementsByTagName("div");
+
+    //根据ID获取jQuery包装集
+    var jQueryObject = $("#testDiv");
+
+    //从jQuery包装集中返回Dom对象
+    var domObject = $("#testDiv")[0];
+
+    //将Dom对象转换成jQuery包装集
+    var domToJQueryObject = $(div);
+
+    //each方法中的this是Dom对象
+    $("#testDiv").each(function() { alert(this) })
+
+    //将each方法中的this转换为jQuery包装集
+    $("#testDiv").each(function() { $(this).html("修改内容") })
+</script>
+</body>
+</html>
