@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <script src="lib/jquery-1.9.1.js"></script>
+
+</head>
+<script>
+    $(function(){
+        $("#btnAjaxGet").click(function(){
+            //添加时间戳，避免浏览器缓存
+            $("#divResult").load("data/AjaxGetMethod.aspx?" + "timestamp=" + (new Date()).getTime());
+        });
+
+        $("#btnAjaxPost").click(function(){
+
+        });
+
+        $("#btnAjaxCallBack").click(function(){
+            $("#divResult").load("data/AjaxGetMethod.aspx",null,function(responseText,status,xmlRequest){
+                responseText = " Add in the CallBack Function! <br><b>" + responseText + "</b></br>";
+                $(this).html(responseText);
+            })
+        });
+
+        $("#btnAjaxFiltHtml").click(function(){
+
+        });
+    })
+
+</script>
+<body>
+<button id="btnAjaxGet">使用Load执行Get请求</button><br />
+<button id="btnAjaxPost">使用Load执行Post请求</button><br />
+<button id="btnAjaxCallBack">使用带有回调函数的Load方法</button><br />
+<button id="btnAjaxFiltHtml">使用selector过滤返回的HTML内容</button>
+<br />
+<div id="divResult"></div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="lib/jquery-1.9.1.js"></script>
+</head>
+<body>
+<button id="btnAjaxGet">只传递Url参数</button><br />
+<button id="btnAjaxGet2">传递url和data参数</button><br />
+<button id="btnAjaxGet3">使用回调函数</button><br />
+<br />
+<div id="divResult"></div>
+</body>
+<script>
+    $(function(){
+        $("#btnAjaxGet").click(function(){
+            $.get("data/AjaxGetMethod.aspx?param=btnAjaxGet_click");
+            $("#divResult").html("发送请求完毕, 只传递url");
+        });
+
+        $("#btnAjaxGet2").click(function(){
+            $.get("data/AjaxGetMethod.aspx",{ "param": "btnAjaxGet2_click" });
+            $("#divResult").html("发送请求完毕, 传递url和参数");
+        });
+
+        $("#btnAjaxGet3").click(function(){
+            $.get("data/AjaxGetMethod.aspx",{ "param": "btnAjaxGet3_click" },function(data,textStatus){
+                var result = "data:" + data + "<br/> textStatus:" + textStatus + "<br/> this:" + typeof(this);
+                $("#divResult").html(result);
+            });
+
+        });
+    })
+
+</script>
+</html>
